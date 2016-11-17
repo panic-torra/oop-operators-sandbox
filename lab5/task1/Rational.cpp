@@ -57,6 +57,11 @@ unsigned GCD(unsigned a, unsigned b)
 //////////////////////////////////////////////////////////////////////////
 // TODO: 2. Реализовать унарный + и унарный -
 //////////////////////////////////////////////////////////////////////////
+const CRational CRational::operator+() const
+{
+	return *this;
+}
+
 const CRational CRational::operator-() const
 {
 	return CRational(-m_numerator, m_denominator);
