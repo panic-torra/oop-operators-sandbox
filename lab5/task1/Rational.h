@@ -43,7 +43,7 @@ public:
 	//  -someRational = someOtherRational;
 	//	+someRational = someOtherRational;
 	//////////////////////////////////////////////////////////////////////////
-
+	const CRational CRational::operator-() const;
 
 
 
