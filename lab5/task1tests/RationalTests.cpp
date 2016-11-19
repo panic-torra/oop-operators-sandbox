@@ -98,7 +98,27 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 //  -someRational = someOtherRational;
 //	+someRational = someOtherRational;
 //////////////////////////////////////////////////////////////////////////
+	BOOST_AUTO_TEST_CASE(has_unary_plus_that_returns_itself_without_changes)
+	{
+		VerifyRational(CRational(1, 2), 1, 2);
+		VerifyRational(CRational(4, 3), 4, 3);
+		VerifyRational(CRational(0), 0, 1);
+	}
 
+	BOOST_AUTO_TEST_SUITE(has_unary_minus)
+		BOOST_AUTO_TEST_CASE(that_returns_itself_with_inverted_sign)
+		{
+			VerifyRational(-CRational(7, 8), -7, 8);
+			VerifyRational(-CRational(-7, 8), 7, 8);
+			VerifyRational(-CRational(7, -8), 7, 8);
+			VerifyRational(-CRational(-7, -8), -7, 8);
+		}
+		BOOST_AUTO_TEST_CASE(that_correctly_handles_0)
+		{
+			VerifyRational(-CRational(0), +0, 1);
+			VerifyRational(-CRational(0), -0, 1);
+		}
+	BOOST_AUTO_TEST_SUITE_END()
 
 
 
