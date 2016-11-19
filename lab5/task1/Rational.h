@@ -202,3 +202,11 @@ const bool operator <(int const & left, CRational const & right);
 const bool operator >=(CRational const & left, CRational const & right);
 const bool operator >=(CRational const & left, int const & right);
 const bool operator >=(int const & left, CRational const & right);
+
+const bool operator >(CRational const & left, CRational const & right);
+const bool operator >(CRational const & left, int const & right);
+const bool operator >(int const & left, CRational const & right);
+
+const bool operator <=(CRational const & left, CRational const & right);
+const bool operator <=(CRational const & left, int const & right);
+const bool operator <=(int const & left, CRational const & right);

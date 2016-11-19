@@ -170,6 +170,38 @@ const bool operator >=(int const & left, CRational const & right)
 	return !(left < right);
 }
 
+const bool operator >(CRational const & left, CRational const & right)
+{
+	return (left.GetNumerator() * right.GetDenominator() > right.GetNumerator() * left.GetDenominator());
+}
+
+const bool operator >(CRational const & left, int const & right)
+{
+	CRational rightRational(right);
+	return left > rightRational;
+}
+
+const bool operator >(int const & left, CRational const & right)
+{
+	CRational leftRational(left);
+	return leftRational > right;
+}
+
+const bool operator <=(CRational const & left, CRational const & right)
+{
+	return !(left > right);
+}
+
+const bool operator <=(CRational const & left, int const & right)
+{
+	return !(left > right);
+}
+
+const bool operator <=(int const & left, CRational const & right)
+{
+	return !(left > right);
+}
+
 //////////////////////////////////////////////////////////////////////////
 // TODO: 13. Реализовать оператор вывода рационального числа в выходной поток 
 //////////////////////////////////////////////////////////////////////////
