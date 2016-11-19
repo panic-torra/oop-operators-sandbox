@@ -244,7 +244,42 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 //	3 >= (8/2)     → false
 //////////////////////////////////////////////////////////////////////////
 
+	BOOST_AUTO_TEST_SUITE(can_compare_with_operator_smaller)
+		BOOST_AUTO_TEST_CASE(rational_with_rational)
+		{
+			BOOST_CHECK(!(CRational(1, 2) < CRational(1, 5)));
+			BOOST_CHECK((CRational(1, 2) < CRational(8, 3)));
+		}
+		BOOST_AUTO_TEST_CASE(integer_with_rational)
+		{
+			BOOST_CHECK(!(CRational(1, 2) < -2));
+			BOOST_CHECK((CRational(1, 2) < 2));
+		}
+		BOOST_AUTO_TEST_CASE(rational_with_integer)
+		{
+			BOOST_CHECK(!(2 < CRational(1, 5)));
+			BOOST_CHECK((-5 < CRational(8, 3)));
+		}
+	BOOST_AUTO_TEST_SUITE_END()
 
+
+	BOOST_AUTO_TEST_SUITE(can_compare_with_operator_bigger_and_equal)
+		BOOST_AUTO_TEST_CASE(rational_with_rational)
+		{
+			BOOST_CHECK(CRational(1, 2) >= CRational(1, 5));
+			BOOST_CHECK(!(CRational(1, 2) >= CRational(8, 3)));
+		}
+		BOOST_AUTO_TEST_CASE(integer_with_rational)
+		{
+			BOOST_CHECK(CRational(1, 2) >= -2);
+			BOOST_CHECK(!(CRational(1, 2) >= 2));
+		}
+		BOOST_AUTO_TEST_CASE(rational_with_integer)
+		{
+			BOOST_CHECK(2 >= CRational(1, 5));
+			BOOST_CHECK(!(-5 >= CRational(8, 3)));
+		}
+	BOOST_AUTO_TEST_SUITE_END()
 
 
 //////////////////////////////////////////////////////////////////////////
