@@ -163,7 +163,21 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 // (1/2) -= (1/6)  → (1/3)
 // (1/2) -= 1      → (-1/2)
 //////////////////////////////////////////////////////////////////////////
-
+	BOOST_AUTO_TEST_SUITE(can_work_with_subtraction_assignment)
+		BOOST_AUTO_TEST_CASE(with_rational)
+		{
+			VerifyRational(CRational(1, 2) -= CRational(0, 6), 1, 2);
+			VerifyRational(CRational(1, 2) -= CRational(1, 6), 1, 3);
+			VerifyRational(CRational(3, 4) -= CRational(9, 8), -3, 8);
+			VerifyRational(CRational(1, 2) -= CRational(1, 2), 0, 1);
+		}
+		BOOST_AUTO_TEST_CASE(with_integer)
+		{
+			VerifyRational(CRational(1, 2) -= 3, -5, 2);
+			VerifyRational(CRational(7, 6) -= 1, 1, 6);
+			VerifyRational(CRational(7, 6) -= 0, 7, 6);
+		}
+	BOOST_AUTO_TEST_SUITE_END()
 
 
 
