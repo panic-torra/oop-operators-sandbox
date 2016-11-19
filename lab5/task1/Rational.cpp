@@ -50,7 +50,10 @@ unsigned GCD(unsigned a, unsigned b)
 //////////////////////////////////////////////////////////////////////////
 // TODO: 1. Реализовать метод ToDouble() согласно заданию
 //////////////////////////////////////////////////////////////////////////
-
+double CRational::ToDouble() const
+{
+	return static_cast<double>(m_numerator) / m_denominator;
+}
 
 
 
