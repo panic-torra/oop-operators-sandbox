@@ -59,11 +59,7 @@ unsigned GCD(unsigned a, unsigned b)
 //////////////////////////////////////////////////////////////////////////
 const CRational CRational::operator-() const
 {
-	int sign = 1;
-	if (m_numerator < 0 || m_denominator < 0)
-	{
-		sign = -1;
-	}
+	int sign = -1;
 	return CRational(sign * m_numerator, m_denominator);
 }
 
