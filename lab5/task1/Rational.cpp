@@ -138,7 +138,25 @@ const CRational CRational::operator-() const
 //////////////////////////////////////////////////////////////////////////
 // TODO: 12. Реализовать операторы <, >, <=, >=
 //////////////////////////////////////////////////////////////////////////
+const bool operator <(CRational const & left, CRational const & right)
+{
+	return (left.GetNumerator() * right.GetDenominator() < right.GetNumerator() * left.GetDenominator());
+}
 
+const bool operator >=(CRational const & left, CRational const & right)
+{
+	return !(left < right);
+}
+
+const bool operator >(CRational const & left, CRational const & right)
+{
+	return (left.GetNumerator() * right.GetDenominator() > right.GetNumerator() * left.GetDenominator());
+}
+
+const bool operator <=(CRational const & left, CRational const & right)
+{
+	return !(left > right);
+}
 
 
 
