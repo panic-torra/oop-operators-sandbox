@@ -238,7 +238,7 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 		}
 		BOOST_AUTO_TEST_CASE(integer_with_rational)
 		{
-			//BOOST_CHECK(CRational(3, 2) == 1.5);
+			BOOST_CHECK(CRational(0, 1) == 0);
 			BOOST_CHECK(CRational(1, 2) != 2);
 		}
 		BOOST_AUTO_TEST_CASE(rational_with_integer)
