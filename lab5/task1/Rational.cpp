@@ -113,22 +113,15 @@ unsigned GCD(unsigned a, unsigned b)
 //////////////////////////////////////////////////////////////////////////
 const CRational & CRational::operator/=(const CRational & divider)
 {
-	m_numerator *= divider.GetDenominator();
-	m_denominator *= divider.GetNumerator();
-	Normalize();
-	return *this;
-}
-
-const CRational & CRational::operator/=(const int & divider)
-{
-	if (divider != 0)
+	if (divider.GetNumerator() != 0)
 	{
-		m_denominator *= divider;
+		m_numerator *= divider.GetDenominator();
+		m_denominator *= divider.GetNumerator();
 		Normalize();
+
 	}
 	return *this;
 }
-
 
 
 //////////////////////////////////////////////////////////////////////////

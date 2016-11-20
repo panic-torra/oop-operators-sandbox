@@ -191,6 +191,7 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 		VerifyRational(CRational(1, 2) /= CRational(2, 3), 3, 4);
 		VerifyRational(CRational(3, 4) /= CRational(3, 8), 2, 1);
 		VerifyRational(CRational(1, 2) /= CRational(1, 2), 1, 1);
+		VerifyRational(CRational(1, 2) /= CRational(0, 1), 1, 2);
 		VerifyRational(CRational(1, 2) /= 3, 1, 6);
 		VerifyRational(CRational(1, 6) /= 0, 1, 6);
 	}
