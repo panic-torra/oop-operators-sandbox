@@ -15,8 +15,6 @@ BOOST_AUTO_TEST_CASE(Test_Greates_Common_Denominator)
 	BOOST_CHECK_EQUAL(GCD(0, 0), 1u);
 }
 
-
-
 /*
   Рациональное число:
 	равно нулю по умолчанию (0/1)
@@ -61,7 +59,6 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 	{
 		BOOST_REQUIRE_THROW(CRational(1, 0), std::invalid_argument);
 	}
-
 
 //////////////////////////////////////////////////////////////////////////
 // TODO: 1. Реализовать метод ToDouble() согласно заданию
@@ -159,7 +156,6 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 		}
 	BOOST_AUTO_TEST_SUITE_END()
 
-
 //////////////////////////////////////////////////////////////////////////
 // TODO: 5. Реализовать оператор +=
 // Выполняет увеличение рационального числа на величину второго рационального,
@@ -224,9 +220,6 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 			VerifyRational(7 * CRational(2, 3), 14, 3);
 		}
 	BOOST_AUTO_TEST_SUITE_END()
-
-
-
 
 //////////////////////////////////////////////////////////////////////////
 // TODO: 8. Реализовать оператор /
@@ -458,19 +451,21 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 // Например, рациональное число 9/4 может быть представлено в виде смешанной 
 // дроби 2, 1/4
 //////////////////////////////////////////////////////////////////////////
+	void VerifyCompoundRational(const std::pair<int, CRational> compoundRational, int expectedInt, CRational expectedRational)
+	{
+		BOOST_CHECK_EQUAL(compoundRational.first, expectedInt);
+		BOOST_CHECK_EQUAL(compoundRational.second, expectedRational);
+	}
 
 	BOOST_AUTO_TEST_CASE(has_a_method_to_get_a_compound_fraction)
 	{
 		auto compoundRational = CRational(1, 5).ToCompoundFraction();
-		BOOST_CHECK_EQUAL(compoundRational.first, 0);
-		BOOST_CHECK_EQUAL(compoundRational.second, CRational(1, 5));
+		VerifyCompoundRational(compoundRational, 0, CRational(1, 5));
 
 		compoundRational = CRational(9, 4).ToCompoundFraction();
-		BOOST_CHECK_EQUAL(compoundRational.first, 2);
-		BOOST_CHECK_EQUAL(compoundRational.second, CRational(1, 4));
+		VerifyCompoundRational(compoundRational, 2, CRational(1, 4));
 
 		compoundRational = CRational(-9, 4).ToCompoundFraction();
-		BOOST_CHECK_EQUAL(compoundRational.first, -2);
-		BOOST_CHECK_EQUAL(compoundRational.second, CRational(-1, 4));
+		VerifyCompoundRational(compoundRational, -2, CRational(-1, 4));
 	}
 BOOST_AUTO_TEST_SUITE_END()
