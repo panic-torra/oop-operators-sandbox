@@ -116,12 +116,13 @@ const CRational operator*(const CRational & left, const CRational & right)
 	return CRational(left.GetNumerator() * right.GetNumerator(), left.GetDenominator() * right.GetDenominator());
 }
 
-
-
 //////////////////////////////////////////////////////////////////////////
 // TODO: 8. Реализовать оператор /
 //////////////////////////////////////////////////////////////////////////
-
+const CRational operator/(const CRational & left, const CRational & right)
+{
+	return CRational(left.GetNumerator() * right.GetDenominator(), left.GetDenominator() * right.GetNumerator());
+}
 
 
 

@@ -211,7 +211,7 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 //	(1/2) * (-3)  = (-3/2)
 //	7 * (2/3)     = (14/3)
 //////////////////////////////////////////////////////////////////////////
-	BOOST_AUTO_TEST_SUITE(has_multiplication)
+	BOOST_AUTO_TEST_SUITE(has_multiplication_operator)
 		BOOST_AUTO_TEST_CASE(that_works_with_rational)
 		{
 			VerifyRational(CRational(1, 2) * CRational(2, 3), 1, 3);
@@ -236,7 +236,20 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 //	(1/2) ⁄ 5     = (1/10)
 //	7 ⁄ (2/3)     = (21/2)
 //////////////////////////////////////////////////////////////////////////
-
+	BOOST_AUTO_TEST_SUITE(has_division_operator)
+	BOOST_AUTO_TEST_CASE(that_works_with_rational)
+		{
+			VerifyRational(CRational(1, 2) / CRational(2, 3), 3, 4); 
+			BOOST_REQUIRE_THROW(CRational(1, 2) / CRational(0, 1), std::invalid_argument);
+		}
+		BOOST_AUTO_TEST_CASE(that_works_with_integer)
+		{
+			BOOST_REQUIRE_THROW(CRational(1, 2) / 0, std::invalid_argument);
+			VerifyRational(0 / CRational(1, 2), 0, 1);
+			VerifyRational(CRational(1, 2) / 5, 1, 10);
+			VerifyRational(7 / CRational(2, 3), 21, 2);
+		}
+	BOOST_AUTO_TEST_SUITE_END()
 
 
 
