@@ -99,12 +99,14 @@ const CRational & CRational::operator+=(const CRational & sum)
 	return *this;
 }
 
-
-
 //////////////////////////////////////////////////////////////////////////
 // TODO: 6. Реализовать оператор -=
 //////////////////////////////////////////////////////////////////////////
-
+const CRational & CRational::operator-=(const CRational & subtrahend)
+{
+	*this = *this - subtrahend;
+	return *this;
+}
 
 
 
