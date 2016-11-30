@@ -151,6 +151,10 @@ const CRational & CRational::operator/=(const CRational & divider)
 	{
 		*this = CRational(1, 1);
 	}
+	else
+	{
+		throw std::invalid_argument("Division by zero is forbidden");
+	}
 	return *this;
 }
 
