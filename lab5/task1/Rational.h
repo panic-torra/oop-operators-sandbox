@@ -95,8 +95,8 @@ const bool operator ==(CRational const & left, CRational const & right);
 const bool operator !=(CRational const & left, CRational const & right);
 
 const bool operator <(CRational const & left, CRational const & right);
-const bool operator >=(CRational const & left, CRational const & right);
 const bool operator >(CRational const & left, CRational const & right);
+const bool operator >=(CRational const & left, CRational const & right);
 const bool operator <=(CRational const & left, CRational const & right);
 
 std::ostream & operator <<(std::ostream & output, const CRational & rational);
