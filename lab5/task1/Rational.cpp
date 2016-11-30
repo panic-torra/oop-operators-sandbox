@@ -56,7 +56,6 @@ double CRational::ToDouble() const
 }
 
 
-
 //////////////////////////////////////////////////////////////////////////
 // TODO: 2. Реализовать унарный + и унарный -
 //////////////////////////////////////////////////////////////////////////
@@ -71,11 +70,15 @@ const CRational CRational::operator-() const
 }
 
 
-
 //////////////////////////////////////////////////////////////////////////
 // TODO: 3. Реализовать бинарный +
 //////////////////////////////////////////////////////////////////////////
-
+const CRational operator+(const CRational & left, const CRational & right)
+{
+	int numerator = left.GetNumerator() * right.GetDenominator() + right.GetNumerator() * left.GetDenominator();
+	int denominator = left.GetDenominator() * right.GetDenominator();
+	return CRational(numerator, denominator);
+}
 
 
 

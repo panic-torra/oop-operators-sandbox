@@ -63,8 +63,6 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 	}
 
 
-
-
 //////////////////////////////////////////////////////////////////////////
 // TODO: 1. Реализовать метод ToDouble() согласно заданию
 // Возвращает отношение числителя и знаменателя в виде числа double
@@ -78,8 +76,6 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 		BOOST_CHECK_CLOSE_FRACTION(CRational(8, 5).ToDouble(), 1.6, 0.00001);
 		BOOST_CHECK_CLOSE_FRACTION(CRational(0).ToDouble(), 0, 0.00001);
 	}
-
-
 
 //////////////////////////////////////////////////////////////////////////
 // TODO: 2. Реализовать унарный + и унарный -
@@ -120,8 +116,6 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 		}
 	BOOST_AUTO_TEST_SUITE_END()
 
-
-
 //////////////////////////////////////////////////////////////////////////
 // TODO: 3. Реализовать бинарный +
 // Возвращает результат сложения двух рациональных чисел, 
@@ -130,9 +124,20 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 //	(1/2) + 1     = (3/2)
 //	1 + (1/2)     = (3/2)
 //////////////////////////////////////////////////////////////////////////
-
-
-
+	BOOST_AUTO_TEST_SUITE(has_binary_addition_operation)
+		BOOST_AUTO_TEST_CASE(that_works_with_rational)
+		{
+			VerifyRational(CRational(1, 2) + CRational(1, 6), 2, 3);
+			VerifyRational(CRational(1, 6) + CRational(1, 2), 2, 3);
+			VerifyRational(CRational(1, 2) + CRational(1, 2), 1, 1);
+		}
+		BOOST_AUTO_TEST_CASE(that_works_with_integer)
+		{
+			VerifyRational(CRational(1, 2) + 1, 3, 2);
+			VerifyRational(1 + CRational(1, 2), 3, 2);
+		}
+		
+	BOOST_AUTO_TEST_SUITE_END()
 
 //////////////////////////////////////////////////////////////////////////
 // TODO: 4. Реализовать бинарный -
@@ -269,7 +274,6 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 //	3 <= (7/2)     → true
 //	3 >= (8/2)     → false
 //////////////////////////////////////////////////////////////////////////
-
 	BOOST_AUTO_TEST_SUITE(can_compare_with_operator_smaller)
 		BOOST_AUTO_TEST_CASE(rational_with_rational)
 		{
