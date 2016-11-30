@@ -442,7 +442,15 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 //	std::istream в формате <числитель>/<знаменатель>, 
 //	например: 7/15
 //////////////////////////////////////////////////////////////////////////
+	BOOST_AUTO_TEST_CASE(has_operator_for_getting_value_from_input)
+	{
+		CRational rational;
+		std::stringstream input;
+		input << "5/7 5:7 8/2";
+		input >> rational;
+		VerifyRational(rational, 5, 7);
 
+	}
 
 
 BOOST_AUTO_TEST_SUITE_END()

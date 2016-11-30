@@ -196,7 +196,7 @@ const bool operator <=(CRational const & left, CRational const & right)
 //////////////////////////////////////////////////////////////////////////
 // TODO: 13. Реализовать оператор вывода рационального числа в выходной поток 
 //////////////////////////////////////////////////////////////////////////
-std::ostream& operator <<(std::ostream & strm, const CRational & rational)
+std::ostream & operator <<(std::ostream & strm, const CRational & rational)
 {
 	strm << rational.GetNumerator() << "/" << rational.GetDenominator();
 	return strm;
@@ -205,5 +205,18 @@ std::ostream& operator <<(std::ostream & strm, const CRational & rational)
 //////////////////////////////////////////////////////////////////////////
 // TODO: 14. Реализовать оператор ввода рационального числа из входного потока 
 //////////////////////////////////////////////////////////////////////////
+std::istream & operator >> (std::istream & input, CRational & rational)
+{
+	int numerator;
+	int denominator;
+	if (input >> numerator && input.get() == '/' && input >> denominator)
+	{
+		rational = CRational(numerator, denominator);
+	}
+	else
+	{
+		
+	}
 
-
+	return input;
+}
