@@ -21,13 +21,10 @@ public:
 	const CRational CRational::operator+() const;
 	const CRational CRational::operator-() const;
 
-	const CRational & operator+=(const CRational & sum);
-
-	const CRational & operator-=(const CRational & subtrahend);
-
-	const CRational & operator*=(const CRational & multiplier);
-
-	const CRational & operator/=(const CRational & divider);
+	CRational & operator+=(const CRational & sum);
+	CRational & operator-=(const CRational & subtrahend);
+	CRational & operator*=(const CRational & multiplier);
+	CRational & operator/=(const CRational & divider);
 private:
 	int m_numerator;
 	int m_denominator;

@@ -468,4 +468,21 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 		compoundRational = CRational(-9, 4).ToCompoundFraction();
 		VerifyCompoundRational(compoundRational, -2, CRational(-1, 4));
 	}
+
+	BOOST_AUTO_TEST_CASE(must_have_a_valid_addition_assignment)
+	{
+		int x = 3, y = 5, z = 6;
+		(x += y) += z;
+
+		CRational rx(3);
+		CRational ry(5);
+		CRational rz(6);
+		(rx += ry) += rz;
+		BOOST_CHECK_EQUAL(rx, x);
+		BOOST_CHECK_EQUAL((x += y) += z, (rx += ry) += rz);
+		BOOST_CHECK_EQUAL((x -= y) -= z, (rx -= ry) -= rz);
+		BOOST_CHECK_EQUAL((x *= y) *= z, (rx *= ry) *= rz);
+		BOOST_CHECK_EQUAL((x /= y) /= z, (rx /= ry) /= rz);
+	}
+
 BOOST_AUTO_TEST_SUITE_END()

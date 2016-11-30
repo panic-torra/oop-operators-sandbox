@@ -93,7 +93,7 @@ const CRational operator-(const CRational & left, const CRational & right)
 //////////////////////////////////////////////////////////////////////////
 // TODO: 5. Реализовать оператор +=
 //////////////////////////////////////////////////////////////////////////
-const CRational & CRational::operator+=(const CRational & sum)
+CRational & CRational::operator+=(const CRational & sum)
 {
 	*this = *this + sum;
 	return *this;
@@ -102,7 +102,7 @@ const CRational & CRational::operator+=(const CRational & sum)
 //////////////////////////////////////////////////////////////////////////
 // TODO: 6. Реализовать оператор -=
 //////////////////////////////////////////////////////////////////////////
-const CRational & CRational::operator-=(const CRational & subtrahend)
+CRational & CRational::operator-=(const CRational & subtrahend)
 {
 	*this = *this - subtrahend;
 	return *this;
@@ -127,7 +127,7 @@ const CRational operator/(const CRational & left, const CRational & right)
 //////////////////////////////////////////////////////////////////////////
 // TODO: 9. Реализовать оператор *=
 //////////////////////////////////////////////////////////////////////////
-const CRational & CRational::operator*=(const CRational & multiplier)
+CRational & CRational::operator*=(const CRational & multiplier)
 {
 	m_numerator *= multiplier.GetNumerator();
 	m_denominator *= multiplier.GetDenominator();
@@ -138,7 +138,7 @@ const CRational & CRational::operator*=(const CRational & multiplier)
 //////////////////////////////////////////////////////////////////////////
 // TODO: 10. Реализовать оператор /=
 //////////////////////////////////////////////////////////////////////////
-const CRational & CRational::operator/=(const CRational & divider)
+CRational & CRational::operator/=(const CRational & divider)
 {
 	if (divider.GetNumerator() != 0 && *this != divider)
 	{
