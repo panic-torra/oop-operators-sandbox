@@ -25,7 +25,7 @@ public:
 
 	const CRational & operator-=(const CRational & subtrahend);
 
-	const CRational & CRational::operator*=(const CRational & multiplier);
+	const CRational & operator*=(const CRational & multiplier);
 
 	const CRational & operator/=(const CRational & divider);
 private:
