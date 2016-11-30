@@ -138,9 +138,7 @@ public:
 	//	(1/2) /= (2/3) → (3/4)
 	//	(1/2) /= 3     → (1/6)
 	//////////////////////////////////////////////////////////////////////////
-
-
-
+	const CRational & operator/=(const CRational & divider);
 
 	//////////////////////////////////////////////////////////////////////////
 	// TODO: 11. Реализовать операторы == и !=
@@ -196,3 +194,11 @@ private:
 
 // Вычисляет наибольший общий делитель (greatest common denominator) чисел a и b
 unsigned GCD(unsigned a, unsigned b);
+
+const bool operator ==(CRational const & left, CRational const & right);
+const bool operator !=(CRational const & left, CRational const & right);
+
+const bool operator <(CRational const & left, CRational const & right);
+const bool operator >=(CRational const & left, CRational const & right);
+const bool operator >(CRational const & left, CRational const & right);
+const bool operator <=(CRational const & left, CRational const & right);

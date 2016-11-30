@@ -124,23 +124,60 @@ const CRational CRational::operator-() const
 //////////////////////////////////////////////////////////////////////////
 // TODO: 10. Реализовать оператор /=
 //////////////////////////////////////////////////////////////////////////
-
+const CRational & CRational::operator/=(const CRational & divider)
+{
+	if (divider.GetNumerator() != 0 && *this != divider)
+	{
+		m_numerator *= divider.GetDenominator();
+		m_denominator *= divider.GetNumerator();
+		Normalize();
+	}
+	else if (*this == divider)
+	{
+		*this = CRational(1, 1);
+	}
+	return *this;
+}
 
 
 
 //////////////////////////////////////////////////////////////////////////
 // TODO: 11. Реализовать операторы == и !=
 //////////////////////////////////////////////////////////////////////////
+const bool operator ==(CRational const & left, CRational const & right)
+{
+	return (left.GetNumerator() == right.GetNumerator() && left.GetDenominator() == right.GetDenominator());
+}
 
+const bool operator !=(CRational const & left, CRational const & right)
+{
+	return !(left == right);
+}
 
 
 
 //////////////////////////////////////////////////////////////////////////
 // TODO: 12. Реализовать операторы <, >, <=, >=
 //////////////////////////////////////////////////////////////////////////
+const bool operator <(CRational const & left, CRational const & right)
+{
+	return (left.GetNumerator() * right.GetDenominator() < right.GetNumerator() * left.GetDenominator());
+}
 
+const bool operator >=(CRational const & left, CRational const & right)
+{
+	return !(left < right);
+}
 
+const bool operator >(CRational const & left, CRational const & right)
+{
+	return (left.GetNumerator() * right.GetDenominator() > right.GetNumerator() * left.GetDenominator());
+}
 
+const bool operator <=(CRational const & left, CRational const & right)
+{
+	return !(left > right);
+}
 
 //////////////////////////////////////////////////////////////////////////
 // TODO: 13. Реализовать оператор вывода рационального числа в выходной поток 
