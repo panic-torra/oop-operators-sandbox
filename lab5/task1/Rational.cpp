@@ -215,7 +215,7 @@ std::istream & operator >> (std::istream & input, CRational & rational)
 	}
 	else
 	{
-		
+		input.setstate(std::ios_base::failbit);
 	}
 
 	return input;

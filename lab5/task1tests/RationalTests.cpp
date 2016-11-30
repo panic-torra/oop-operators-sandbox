@@ -135,7 +135,7 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 			VerifyRational(CRational(1, 2) + 1, 3, 2);
 			VerifyRational(1 + CRational(1, 2), 3, 2);
 		}
-		
+
 	BOOST_AUTO_TEST_SUITE_END()
 
 //////////////////////////////////////////////////////////////////////////
@@ -446,11 +446,11 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 	{
 		CRational rational;
 		std::stringstream input;
-		input << "5/7 5:7 8/2";
+		input << "7/15 5:7 5/7";
 		input >> rational;
-		VerifyRational(rational, 5, 7);
-
+		VerifyRational(rational, 7, 15);
+		input >> rational;
+		BOOST_CHECK(input.fail());
 	}
-
 
 BOOST_AUTO_TEST_SUITE_END()
