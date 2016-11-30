@@ -85,9 +85,7 @@ const CRational operator+(const CRational & left, const CRational & right)
 //////////////////////////////////////////////////////////////////////////
 const CRational operator-(const CRational & left, const CRational & right)
 {
-	int numerator = left.GetNumerator() * right.GetDenominator() - right.GetNumerator() * left.GetDenominator();
-	int denominator = left.GetDenominator() * right.GetDenominator();
-	return CRational(numerator, denominator);
+	return left + (-right);
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -104,7 +102,7 @@ CRational & CRational::operator+=(const CRational & sum)
 //////////////////////////////////////////////////////////////////////////
 CRational & CRational::operator-=(const CRational & subtrahend)
 {
-	*this = *this - subtrahend;
+	*this += -subtrahend;
 	return *this;
 }
 
@@ -121,7 +119,7 @@ const CRational operator*(const CRational & left, const CRational & right)
 //////////////////////////////////////////////////////////////////////////
 const CRational operator/(const CRational & left, const CRational & right)
 {
-	return CRational(left.GetNumerator() * right.GetDenominator(), left.GetDenominator() * right.GetNumerator());
+	return left * CRational(right.GetDenominator(), right.GetNumerator());
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -142,9 +140,7 @@ CRational & CRational::operator/=(const CRational & divider)
 {
 	if (divider.GetNumerator() != 0 && *this != divider)
 	{
-		m_numerator *= divider.GetDenominator();
-		m_denominator *= divider.GetNumerator();
-		Normalize();
+		*this *= CRational(divider.GetDenominator(), divider.GetNumerator());
 	}
 	else if (*this == divider)
 	{
