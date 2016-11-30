@@ -90,12 +90,14 @@ const CRational operator-(const CRational & left, const CRational & right)
 	return CRational(numerator, denominator);
 }
 
-
-
 //////////////////////////////////////////////////////////////////////////
 // TODO: 5. Реализовать оператор +=
 //////////////////////////////////////////////////////////////////////////
-
+const CRational & CRational::operator+=(const CRational & sum)
+{
+	*this = *this + sum;
+	return *this;
+}
 
 
 

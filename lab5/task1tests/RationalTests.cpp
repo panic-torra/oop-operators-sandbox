@@ -160,7 +160,6 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 	BOOST_AUTO_TEST_SUITE_END()
 
 
-
 //////////////////////////////////////////////////////////////////////////
 // TODO: 5. Реализовать оператор +=
 // Выполняет увеличение рационального числа на величину второго рационального,
@@ -168,9 +167,20 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 //	(1/2) += (1/6)  → (2/3)
 //	(1/2) += 1      → (3/2)
 //////////////////////////////////////////////////////////////////////////
-
-
-
+	BOOST_AUTO_TEST_SUITE(has_sum_operation)
+		BOOST_AUTO_TEST_CASE(that_works_with_rational)
+		{
+			CRational rational(1, 2);
+			VerifyRational(rational += CRational(1, 6), 2, 3);
+			VerifyRational(rational += CRational(1, 6), 5, 6);
+		}
+		BOOST_AUTO_TEST_CASE(that_works_with_integer)
+		{
+			CRational rational(1, 2);
+			VerifyRational(rational += 1, 3, 2);
+			VerifyRational(rational += 1, 5, 2);
+		}
+	BOOST_AUTO_TEST_SUITE_END()
 
 //////////////////////////////////////////////////////////////////////////
 // TODO: 6. Реализовать оператор -=
@@ -178,8 +188,6 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 // (1/2) -= (1/6)  → (1/3)
 // (1/2) -= 1      → (-1/2)
 //////////////////////////////////////////////////////////////////////////
-
-
 
 
 //////////////////////////////////////////////////////////////////////////
