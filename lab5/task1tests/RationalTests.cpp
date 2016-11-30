@@ -96,9 +96,9 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 //////////////////////////////////////////////////////////////////////////
 	BOOST_AUTO_TEST_CASE(has_unary_plus_that_returns_itself_without_changes)
 	{
-		VerifyRational(CRational(1, 2), 1, 2);
-		VerifyRational(CRational(4, 3), 4, 3);
-		VerifyRational(CRational(0), 0, 1);
+		VerifyRational(+CRational(1, 2), 1, 2);
+		VerifyRational(+CRational(4, 3), 4, 3);
+		VerifyRational(+CRational(0), 0, 1);
 	}
 
 	BOOST_AUTO_TEST_SUITE(has_unary_minus)
@@ -188,18 +188,18 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 // (1/2) -= (1/6)  → (1/3)
 // (1/2) -= 1      → (-1/2)
 //////////////////////////////////////////////////////////////////////////
-	BOOST_AUTO_TEST_SUITE(has_substraction)
+	BOOST_AUTO_TEST_SUITE(has_substraction_operator)
 		BOOST_AUTO_TEST_CASE(that_works_with_rational)
 		{
 			CRational rational(1, 2);
-			VerifyRational(rational += CRational(1, 6), 2, 3);
-			VerifyRational(rational += CRational(1, 6), 5, 6);
+			VerifyRational(rational -= CRational(1, 6), 1, 3);
+			VerifyRational(rational -= CRational(1, 6), 1, 6);
 		}
 		BOOST_AUTO_TEST_CASE(that_works_with_integer)
 		{
 			CRational rational(1, 2);
-			VerifyRational(rational += 1, 3, 2);
-			VerifyRational(rational += 1, 5, 2);
+			VerifyRational(rational -= 1, -1, 2);
+			VerifyRational(rational -= 1, -3, 2);
 		}
 	BOOST_AUTO_TEST_SUITE_END()
 
