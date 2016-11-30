@@ -220,3 +220,13 @@ std::istream & operator >> (std::istream & input, CRational & rational)
 
 	return input;
 }
+
+//////////////////////////////////////////////////////////////////////////
+// TODO: 15. Реализовать получения смешанной дроби из рационального числа 
+//////////////////////////////////////////////////////////////////////////
+
+std::pair<int, CRational> CRational::ToCompoundFraction()const
+{
+	return std::make_pair<int, CRational>(static_cast<int>(m_numerator / m_denominator), 
+		CRational(m_numerator % m_denominator, m_denominator));
+}

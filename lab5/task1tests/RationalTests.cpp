@@ -446,11 +446,31 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 	{
 		CRational rational;
 		std::stringstream input;
-		input << "7/15 5:7 5/7";
+		input << "7/15 5:7";
 		input >> rational;
 		VerifyRational(rational, 7, 15);
 		input >> rational;
 		BOOST_CHECK(input.fail());
 	}
 
+//////////////////////////////////////////////////////////////////////////
+// TODO: 15. Реализовать получения смешанной дроби из рационального числа 
+// Например, рациональное число 9/4 может быть представлено в виде смешанной 
+// дроби 2, 1/4
+//////////////////////////////////////////////////////////////////////////
+
+	BOOST_AUTO_TEST_CASE(has_a_method_to_get_a_compound_fraction)
+	{
+		auto compoundRational = CRational(1, 5).ToCompoundFraction();
+		BOOST_CHECK_EQUAL(compoundRational.first, 0);
+		BOOST_CHECK_EQUAL(compoundRational.second, CRational(1, 5));
+
+		compoundRational = CRational(9, 4).ToCompoundFraction();
+		BOOST_CHECK_EQUAL(compoundRational.first, 2);
+		BOOST_CHECK_EQUAL(compoundRational.second, CRational(1, 4));
+
+		compoundRational = CRational(-9, 4).ToCompoundFraction();
+		BOOST_CHECK_EQUAL(compoundRational.first, -2);
+		BOOST_CHECK_EQUAL(compoundRational.second, CRational(-1, 4));
+	}
 BOOST_AUTO_TEST_SUITE_END()
