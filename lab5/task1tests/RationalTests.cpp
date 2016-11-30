@@ -424,9 +424,18 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 //	std::ostream в формате <числитель>/<знаменатель>, 
 //	например: 7/15
 //////////////////////////////////////////////////////////////////////////
-
-
-
+	BOOST_AUTO_TEST_CASE(has_operator_for_printing_to_ostream)
+	{
+		std::ostringstream output;
+		output << CRational(1, 2);
+		BOOST_CHECK_EQUAL(output.str(), "1/2");
+		output.str("");
+		output << "Hello " << CRational(1, 2) << " world!";
+		BOOST_CHECK_EQUAL(output.str(), "Hello 1/2 world!");
+		output.str("");
+		output << CRational(3);
+		BOOST_CHECK_EQUAL(output.str(), "3/1");
+	}
 
 //////////////////////////////////////////////////////////////////////////
 // TODO: 14. Реализовать оператор ввода рационального числа из входного потока 

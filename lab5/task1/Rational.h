@@ -1,5 +1,5 @@
 ﻿#pragma once
-
+#include <iostream>
 
 /*
 Класс, моделирующий рациональное число
@@ -138,10 +138,6 @@ public:
 	//	std::ostream в формате <числитель>/<знаменатель>, 
 	//	например: 7/15
 	//////////////////////////////////////////////////////////////////////////
-
-
-
-
 	//////////////////////////////////////////////////////////////////////////
 	// TODO: 14. Реализовать оператор ввода рационального числа из входного потока 
 	//	std::istream в формате <числитель>/<знаменатель>, 
@@ -171,3 +167,6 @@ const bool operator <(CRational const & left, CRational const & right);
 const bool operator >=(CRational const & left, CRational const & right);
 const bool operator >(CRational const & left, CRational const & right);
 const bool operator <=(CRational const & left, CRational const & right);
+
+std::ostream& operator <<(std::ostream & output, const CRational & rational);
+std::istream& operator >> (std::istream & strm, CRational & rational);
