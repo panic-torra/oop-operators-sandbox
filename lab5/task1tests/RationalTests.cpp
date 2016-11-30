@@ -301,7 +301,7 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 //	(1/2) != 7     → true
 //	3 != (2/3)     → true
 //////////////////////////////////////////////////////////////////////////
-	BOOST_AUTO_TEST_SUITE(can_check_for_equality)
+	BOOST_AUTO_TEST_SUITE(can_be_checked_for_equality)
 		BOOST_AUTO_TEST_CASE(rational_with_rational)
 		{
 			BOOST_CHECK(CRational(1, 2) == CRational(2, 4));
@@ -333,7 +333,7 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 //	3 <= (7/2)     → true
 //	3 >= (8/2)     → false
 //////////////////////////////////////////////////////////////////////////
-	BOOST_AUTO_TEST_SUITE(can_compare_with_operator_smaller)
+	BOOST_AUTO_TEST_SUITE(can_be_compared_with_bigger)
 		BOOST_AUTO_TEST_CASE(rational_with_rational)
 		{
 			BOOST_CHECK(!(CRational(1, 2) < CRational(1, 5)));
@@ -353,7 +353,7 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 	BOOST_AUTO_TEST_SUITE_END()
 
 
-	BOOST_AUTO_TEST_SUITE(can_compare_with_operator_bigger_and_equal)
+	BOOST_AUTO_TEST_SUITE(can_be_compared_with_smaller_and_equal)
 		BOOST_AUTO_TEST_CASE(rational_with_rational)
 		{
 			BOOST_CHECK(CRational(1, 2) >= CRational(1, 5));
@@ -372,7 +372,7 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 		}
 	BOOST_AUTO_TEST_SUITE_END()
 
-	BOOST_AUTO_TEST_SUITE(can_compare_with_operator_bigger)
+	BOOST_AUTO_TEST_SUITE(can_be_compared_with_smaller)
 		BOOST_AUTO_TEST_CASE(rational_with_rational)
 		{
 			BOOST_CHECK(CRational(1, 2) > CRational(1, 5));
@@ -392,7 +392,7 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 	BOOST_AUTO_TEST_SUITE_END()
 
 
-	BOOST_AUTO_TEST_SUITE(can_compare_with_operator_smaller_and_equal)
+	BOOST_AUTO_TEST_SUITE(can_be_compared_with_bigger_and_equal)
 		BOOST_AUTO_TEST_CASE(rational_with_rational)
 		{
 			BOOST_CHECK(!(CRational(1, 2) <= CRational(1, 5)));
@@ -435,7 +435,7 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 //	std::istream в формате <числитель>/<знаменатель>, 
 //	например: 7/15
 //////////////////////////////////////////////////////////////////////////
-	BOOST_AUTO_TEST_CASE(has_operator_for_getting_value_from_input)
+	BOOST_AUTO_TEST_CASE(has_operator_for_getting_value_from_istream)
 	{
 		CRational rational;
 		std::stringstream input;
