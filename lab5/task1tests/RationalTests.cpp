@@ -211,7 +211,19 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 //	(1/2) * (-3)  = (-3/2)
 //	7 * (2/3)     = (14/3)
 //////////////////////////////////////////////////////////////////////////
-
+	BOOST_AUTO_TEST_SUITE(has_multiplication)
+		BOOST_AUTO_TEST_CASE(that_works_with_rational)
+		{
+			VerifyRational(CRational(1, 2) * CRational(2, 3), 1, 3);
+			VerifyRational(CRational(1, 2) * CRational(0, 1), 0, 1);
+		}
+		BOOST_AUTO_TEST_CASE(that_works_with_integer)
+		{
+			VerifyRational(CRational(1, 2) * 0, 0, 1);
+			VerifyRational(CRational(1, 2) * -3, -3, 2);
+			VerifyRational(7 * CRational(2, 3), 14, 3);
+		}
+	BOOST_AUTO_TEST_SUITE_END()
 
 
 

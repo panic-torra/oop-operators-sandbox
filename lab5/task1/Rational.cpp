@@ -108,12 +108,13 @@ const CRational & CRational::operator-=(const CRational & subtrahend)
 	return *this;
 }
 
-
-
 //////////////////////////////////////////////////////////////////////////
 // TODO: 7. Реализовать оператор *
 //////////////////////////////////////////////////////////////////////////
-
+const CRational operator*(const CRational & left, const CRational & right)
+{
+	return CRational(left.GetNumerator() * right.GetNumerator(), left.GetDenominator() * right.GetDenominator());
+}
 
 
 

@@ -85,11 +85,6 @@ public:
 	//	(1/2) * (-3)  = (-3/2)
 	//	(7*2) / 3     = (14/3)
 	//////////////////////////////////////////////////////////////////////////
-
-
-
-
-
 	//////////////////////////////////////////////////////////////////////////
 	// TODO: 8. Реализовать оператор /
 	// Возвращает частное двух рациональных чисел, 
@@ -98,11 +93,6 @@ public:
 	//	(1/2) ⁄ 5     = (1/10)
 	//	7 ⁄ (2/3)     = (21/2)
 	//////////////////////////////////////////////////////////////////////////
-
-
-
-
-
 	//////////////////////////////////////////////////////////////////////////
 	// TODO: 9. Реализовать оператор *=
 	// Умножает значение первого рационального числа на другое рациональное, 
@@ -173,6 +163,9 @@ unsigned GCD(unsigned a, unsigned b);
 
 const CRational operator+(const CRational & left, const CRational & right);
 const CRational operator-(const CRational & left, const CRational & right);
+
+const CRational operator*(const CRational & left, const CRational & right);
+const CRational operator/(const CRational & left, const CRational & right);
 
 const bool operator ==(CRational const & left, CRational const & right);
 const bool operator !=(CRational const & left, CRational const & right);
