@@ -237,7 +237,7 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 //	7 ⁄ (2/3)     = (21/2)
 //////////////////////////////////////////////////////////////////////////
 	BOOST_AUTO_TEST_SUITE(has_division_operator)
-	BOOST_AUTO_TEST_CASE(that_works_with_rational)
+		BOOST_AUTO_TEST_CASE(that_works_with_rational)
 		{
 			VerifyRational(CRational(1, 2) / CRational(2, 3), 3, 4); 
 			BOOST_REQUIRE_THROW(CRational(1, 2) / CRational(0, 1), std::invalid_argument);
@@ -251,9 +251,6 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 		}
 	BOOST_AUTO_TEST_SUITE_END()
 
-
-
-
 //////////////////////////////////////////////////////////////////////////
 // TODO: 9. Реализовать оператор *=
 // Умножает значение первого рационального числа на другое рациональное, 
@@ -261,10 +258,18 @@ BOOST_AUTO_TEST_SUITE(Rational_number)
 //	(1/2) *= (2/3) → (1/3)
 //	(1/2) *= 3     → (3/2)
 //////////////////////////////////////////////////////////////////////////
-
-
-
-
+	BOOST_AUTO_TEST_SUITE(has_unary_division_operator)
+		BOOST_AUTO_TEST_CASE(that_works_with_rational)
+		{
+			VerifyRational(CRational(1, 2) *= CRational(2, 3), 1, 3);
+			VerifyRational(CRational(3, 4) *= CRational(4, 3), 1, 1);
+		}
+		BOOST_AUTO_TEST_CASE(that_works_with_integer)
+		{
+			VerifyRational(CRational(1, 2) *= 3, 3, 2);
+			VerifyRational(CRational(1, 6) *= 0, 0, 1);
+		}
+	BOOST_AUTO_TEST_SUITE_END()
 
 //////////////////////////////////////////////////////////////////////////
 // TODO: 10. Реализовать оператор /=
